@@ -1,0 +1,125 @@
+@import "tailwindcss";
+@import "./design-tokens/tokens.css";
+
+@theme {
+  --color-water-50: #e8f7fa;
+  --color-water-100: #caf0f8;
+  --color-water-200: #90e0ef;
+  --color-water-300: #48cae4;
+  --color-water-400: #00b4d8;
+  --color-water-500: #0096c7;
+  --color-water-600: #0077b6;
+
+  --color-b2s-green-50: #ecfdf5;
+  --color-b2s-green-100: #d1fae5;
+  --color-b2s-green-400: #34d399;
+  --color-b2s-green-500: #10b981;
+  --color-b2s-green-600: #059669;
+
+  --color-b2s-red-50: #fef2f2;
+  --color-b2s-red-100: #fee2e2;
+  --color-b2s-red-400: #f87171;
+  --color-b2s-red-500: #ef4444;
+  --color-b2s-red-600: #dc2626;
+
+  --color-b2s-amber-50: #fffbeb;
+  --color-b2s-amber-100: #fef3c7;
+  --color-b2s-amber-400: #fbbf24;
+  --color-b2s-amber-500: #f59e0b;
+  --color-b2s-amber-600: #d97706;
+
+  --color-b2s-neutral-0: #ffffff;
+  --color-b2s-neutral-50: #f7f9fb;
+  --color-b2s-neutral-75: #f0f4f7;
+  --color-b2s-neutral-100: #e2e8f0;
+  --color-b2s-neutral-200: #9aa5b1;
+  --color-b2s-neutral-300: #8899a8;
+  --color-b2s-neutral-400: #5c6b7a;
+  --color-b2s-neutral-500: #2d3748;
+  --color-b2s-neutral-600: #242d38;
+  --color-b2s-neutral-700: #1a2b3c;
+  --color-b2s-neutral-800: #1a2028;
+  --color-b2s-neutral-900: #0f1419;
+
+  --color-warm-red-50: #fff5f4;
+  --color-warm-red-100: #ffe5e2;
+  --color-warm-red-400: #ff5c45;
+  --color-warm-red-500: #f93f26;
+  --color-warm-red-600: #c41e1e;
+
+  --color-petro-gray-50: #f4f5f6;
+  --color-petro-gray-100: #e2e5e7;
+  --color-petro-gray-400: #6c757d;
+  --color-petro-gray-500: #5a6268;
+  --color-petro-gray-600: #3d4448;
+
+  /* Municipality colors */
+  --color-cascais: #3B82F6;
+  --color-sintra: #22C55E;
+  --color-oeiras: #F59E0B;
+  --color-mafra: #8B5CF6;
+
+  /* Semaphore colors */
+  --color-semaphore-verde: #10b981;
+  --color-semaphore-amarelo: #f59e0b;
+  --color-semaphore-laranja: #f97316;
+  --color-semaphore-vermelho: #ef4444;
+  --color-semaphore-cinzento: #9aa5b1;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg-body);
+    color: var(--text-primary);
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--primary-default);
+    outline-offset: 2px;
+  }
+}
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235c6b7a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    padding-right: 32px;
+  }
+}
