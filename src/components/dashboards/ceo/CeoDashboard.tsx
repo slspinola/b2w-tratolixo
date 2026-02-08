@@ -47,7 +47,7 @@ export default function CeoDashboard() {
         <div className="space-y-6">
           {/* Page header */}
           <header>
-            <h1 className="text-2xl font-bold text-[var(--text-primary)]">
+            <h1 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
               Desempenho Global
             </h1>
             <p className="text-sm mt-1 text-[var(--text-secondary)]">

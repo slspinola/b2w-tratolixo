@@ -12,7 +12,8 @@ export function Header({ title, onMenuToggle, showMenuButton = false }: HeaderPr
       className="
         sticky top-0 z-30
         flex items-center justify-between
-        h-[70px] px-8
+        h-14 sm:h-16 lg:h-[70px]
+        px-4 sm:px-6 lg:px-8
         bg-[var(--bg-card)]
         border-b border-[var(--border)]
         shadow-[var(--shadow-sm)]
@@ -26,7 +27,7 @@ export function Header({ title, onMenuToggle, showMenuButton = false }: HeaderPr
             onClick={onMenuToggle}
             className="
               flex items-center justify-center
-              w-9 h-9
+              w-10 h-10
               rounded-[var(--b2s-radius-sm)]
               text-[var(--text-secondary)]
               hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)]
@@ -40,7 +41,7 @@ export function Header({ title, onMenuToggle, showMenuButton = false }: HeaderPr
         )}
         <h3
           className="
-            text-[18px] font-semibold leading-snug
+            text-base lg:text-lg font-semibold leading-snug
             text-[var(--text-primary)]
           "
         >

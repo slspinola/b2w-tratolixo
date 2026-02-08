@@ -26,7 +26,7 @@ interface KpiCardProps {
 function KpiCard({ label, value, subtitle, icon, iconBg }: KpiCardProps) {
   return (
     <div
-      className="rounded-[var(--b2s-radius-md)] p-5 flex flex-col justify-between"
+      className="rounded-[var(--b2s-radius-md)] p-3 sm:p-4 lg:p-5 flex flex-col justify-between"
       style={{
         background: 'var(--bg-card)',
         border: '1px solid var(--border)',
@@ -192,7 +192,7 @@ export function OperationsSection({ metrics, isMafra }: OperationsSectionProps) 
   return (
     <div className="space-y-6">
       {/* KPI row */}
-      <div className={`grid gap-4 ${isMafra ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-6' : 'grid-cols-2 sm:grid-cols-4'}`}>
+      <div className={`grid gap-4 ${isMafra ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-6' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'}`}>
         <KpiCard
           label="Sacos Recolhidos"
           value={formatNumber(metrics.sacosHoje)}

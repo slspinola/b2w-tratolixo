@@ -30,9 +30,10 @@ const navItems: NavItem[] = [
 interface SidebarProps {
   collapsed: boolean;
   onToggle: () => void;
+  onNavigate?: () => void;
 }
 
-export function Sidebar({ collapsed }: SidebarProps) {
+export function Sidebar({ collapsed, onNavigate }: SidebarProps) {
   const { colorScheme, toggleColorScheme, b2sOverride, toggleB2S } = useTheme();
 
   return (
@@ -87,7 +88,7 @@ export function Sidebar({ collapsed }: SidebarProps) {
           <p
             className="
               px-6 pb-2
-              text-[10px] font-semibold
+              text-[11px] font-semibold
               text-[var(--text-muted)]
               tracking-widest uppercase
             "
@@ -100,11 +101,12 @@ export function Sidebar({ collapsed }: SidebarProps) {
             <li key={item.path}>
               <NavLink
                 to={item.path}
+                onClick={onNavigate}
                 className={({ isActive }) => `
                   group flex items-center gap-3
                   rounded-[var(--b2s-radius-sm)]
                   transition-colors duration-150
-                  ${collapsed ? 'justify-center px-2 py-2.5' : 'px-3 py-2.5'}
+                  ${collapsed ? 'justify-center px-2 py-3' : 'px-3 py-3'}
                   ${
                     isActive
                       ? 'bg-[var(--primary-surface)] text-[var(--primary-hover)] border-l-[4px] border-[var(--primary-default)] font-medium'
@@ -147,7 +149,7 @@ export function Sidebar({ collapsed }: SidebarProps) {
             flex items-center gap-3
             w-full
             rounded-[var(--b2s-radius-sm)]
-            py-2.5
+            py-3
             text-[var(--text-secondary)]
             hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)]
             transition-colors duration-150
@@ -176,7 +178,7 @@ export function Sidebar({ collapsed }: SidebarProps) {
             flex items-center gap-3
             w-full
             rounded-[var(--b2s-radius-sm)]
-            py-2.5
+            py-3
             transition-colors duration-150
             cursor-pointer
             ${collapsed ? 'justify-center px-2' : 'px-3'}

@@ -51,7 +51,7 @@ function TeamProductivityCards({ teams }: { teams: OperationalMetrics['teamProdu
       </div>
 
       {/* Summary metrics */}
-      <div className="grid grid-cols-3 gap-4 mb-5">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5">
         <div>
           <span
             className="text-[10px] font-medium uppercase"

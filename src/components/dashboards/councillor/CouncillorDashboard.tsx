@@ -42,7 +42,7 @@ export default function CouncillorDashboard() {
       <PageContainer>
         <div className="space-y-6">
           <header>
-            <h1 className="text-2xl font-bold text-[var(--text-primary)]">
+            <h1 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)]">
               Impacto Territorial
             </h1>
             <p className="text-sm mt-1 text-[var(--text-secondary)]">

@@ -163,7 +163,7 @@ export function TrackTrace({ metrics }: TrackTraceProps) {
                       <Package size={10} /> UID
                     </span>
                   </th>
-                  <th className="text-left py-2 font-medium" style={{ color: 'var(--text-muted)' }}>
+                  <th className="text-left py-2 font-medium hidden sm:table-cell" style={{ color: 'var(--text-muted)' }}>
                     <span className="inline-flex items-center gap-1">
                       <Truck size={10} /> Rota
                     </span>
@@ -173,7 +173,7 @@ export function TrackTrace({ metrics }: TrackTraceProps) {
                       <MapPin size={10} /> Municipio
                     </span>
                   </th>
-                  <th className="text-right py-2 font-medium" style={{ color: 'var(--text-muted)' }}>
+                  <th className="text-right py-2 font-medium hidden sm:table-cell" style={{ color: 'var(--text-muted)' }}>
                     Data
                   </th>
                   <th className="text-right py-2 font-medium" style={{ color: 'var(--text-muted)' }}>
@@ -202,13 +202,13 @@ export function TrackTrace({ metrics }: TrackTraceProps) {
                       <td className="py-2 font-mono font-medium" style={{ color: 'var(--primary-default)' }}>
                         {result.uid}
                       </td>
-                      <td className="py-2" style={{ color: 'var(--text-primary)' }}>
+                      <td className="py-2 hidden sm:table-cell" style={{ color: 'var(--text-primary)' }}>
                         {result.rota}
                       </td>
                       <td className="py-2" style={{ color: 'var(--text-primary)' }}>
                         {result.municipio}
                       </td>
-                      <td className="text-right py-2" style={{ color: 'var(--text-secondary)' }}>
+                      <td className="text-right py-2 hidden sm:table-cell" style={{ color: 'var(--text-secondary)' }}>
                         {result.data}
                       </td>
                       <td className="text-right py-2 font-medium" style={{ color: 'var(--text-primary)' }}>

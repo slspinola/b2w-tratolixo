@@ -159,15 +159,15 @@ export function RealTimeFeed() {
           opacity: collapsed ? 0 : 1,
         }}
       >
-        <div className="px-5 pb-4">
-          <table className="w-full text-xs" style={{ color: 'var(--text-primary)' }}>
+        <div className="px-4 sm:px-5 pb-4 overflow-x-auto">
+          <table className="w-full text-xs min-w-[500px]" style={{ color: 'var(--text-primary)' }}>
             <thead>
               <tr className="border-b" style={{ borderColor: 'var(--border)' }}>
                 {['Hora', 'UID RFID', 'Freguesia', 'Peso (kg)', 'Contam. (%)', 'Estado'].map(
                   (header) => (
                     <th
                       key={header}
-                      className="text-[10px] font-semibold uppercase tracking-wider text-left py-2.5 px-2"
+                      className={`text-[11px] font-semibold uppercase tracking-wider text-left py-2.5 px-2 ${header === 'UID RFID' ? 'hidden sm:table-cell' : ''}`}
                       style={{ color: 'var(--text-secondary)' }}
                     >
                       {header}
@@ -190,7 +190,7 @@ export function RealTimeFeed() {
                   <td className="py-2 px-2 tabular-nums font-mono text-[11px]">
                     {bag.hora}
                   </td>
-                  <td className="py-2 px-2 font-mono text-[11px]" style={{ color: 'var(--text-secondary)' }}>
+                  <td className="py-2 px-2 font-mono text-[11px] hidden sm:table-cell" style={{ color: 'var(--text-secondary)' }}>
                     {bag.uid_rfid}
                   </td>
                   <td className="py-2 px-2">{bag.freguesia}</td>

@@ -45,7 +45,7 @@ export function FilterBar({
     <div
       className="
         flex flex-wrap items-end gap-3
-        px-8 py-3
+        px-4 sm:px-6 lg:px-8 py-2 sm:py-3
         bg-[var(--bg-card)]
         border-b border-[var(--border)]
       "
@@ -58,7 +58,7 @@ export function FilterBar({
           <label
             htmlFor="filter-municipio"
             className="
-              text-[11px] font-semibold uppercase tracking-wide
+              text-xs font-semibold uppercase tracking-wide
               text-[var(--text-secondary)]
             "
           >
@@ -69,7 +69,7 @@ export function FilterBar({
             value={filters.municipio ?? ''}
             onChange={(e) => setMunicipio(e.target.value || null)}
             className="
-              h-9 px-3
+              h-10 sm:h-9 px-3
               text-[13px]
               bg-[var(--bg-secondary)]
               text-[var(--text-primary)]
@@ -97,7 +97,7 @@ export function FilterBar({
           <label
             htmlFor="filter-periodo"
             className="
-              text-[11px] font-semibold uppercase tracking-wide
+              text-xs font-semibold uppercase tracking-wide
               text-[var(--text-secondary)]
             "
           >
@@ -108,7 +108,7 @@ export function FilterBar({
             value={filters.periodo}
             onChange={(e) => setPeriodo(e.target.value as FilterState['periodo'])}
             className="
-              h-9 px-3
+              h-10 sm:h-9 px-3
               text-[13px]
               bg-[var(--bg-secondary)]
               text-[var(--text-primary)]
@@ -135,7 +135,7 @@ export function FilterBar({
         <div className="flex flex-col gap-1">
           <span
             className="
-              text-[11px] font-semibold uppercase tracking-wide
+              text-xs font-semibold uppercase tracking-wide
               text-[var(--text-secondary)]
             "
           >
@@ -149,8 +149,8 @@ export function FilterBar({
                 role="radio"
                 aria-checked={filters.turno === s.value}
                 className={`
-                  px-3 py-1.5
-                  text-[12px] font-medium
+                  px-3 py-2 sm:py-1.5
+                  text-xs font-medium
                   rounded-[var(--b2s-radius-full)]
                   transition-colors duration-150
                   cursor-pointer
@@ -176,7 +176,7 @@ export function FilterBar({
         <button
           className="
             flex items-center gap-2
-            h-9 px-4
+            h-10 sm:h-9 px-3 sm:px-4
             text-[13px] font-medium
             text-[var(--text-secondary)]
             bg-[var(--bg-secondary)]
@@ -189,7 +189,7 @@ export function FilterBar({
           aria-label="Export data"
         >
           <Download size={16} strokeWidth={2} aria-hidden="true" />
-          Exportar
+          <span className="hidden sm:inline">Exportar</span>
         </button>
       )}
     </div>

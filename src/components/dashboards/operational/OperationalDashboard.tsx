@@ -55,7 +55,7 @@ export default function OperationalDashboard() {
       {/* Header */}
       <div className="px-1">
         <h1
-          className="text-2xl font-bold"
+          className="text-xl sm:text-2xl font-bold"
           style={{ color: 'var(--text-primary)' }}
         >
           Operacional

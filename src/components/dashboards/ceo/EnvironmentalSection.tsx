@@ -197,7 +197,7 @@ export default function EnvironmentalSection({
   return (
     <section aria-label="KPIs Ambientais" className="space-y-4">
       {/* Environmental KPI cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3">
         <EnvKpiCard
           data={co2EvitadoTon}
           icon={<Leaf size={iconSize} color={iconColor} aria-hidden="true" />}

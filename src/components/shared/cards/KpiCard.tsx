@@ -30,7 +30,7 @@ export function KpiCard({
   return (
     <article
       className={`
-        flex flex-col gap-3 p-5
+        flex flex-col gap-3 p-3 sm:p-4 lg:p-5
         bg-[var(--bg-card)]
         border border-[var(--border)]
         rounded-[var(--b2s-radius-lg)]
@@ -55,7 +55,7 @@ export function KpiCard({
 
       {/* Value row */}
       <div className="flex items-baseline gap-2">
-        <span className="text-[28px] font-bold leading-none text-[var(--text-primary)]">
+        <span className="text-xl sm:text-2xl lg:text-[28px] font-bold leading-none text-[var(--text-primary)]">
           {formatNumber(valor)}
         </span>
         <span className="text-[13px] font-medium text-[var(--text-muted)]">
@@ -73,7 +73,7 @@ export function KpiCard({
         <span className="text-[12px] font-semibold">
           {formatTrend(variacao_pct)}
         </span>
-        <span className="text-[11px] text-[var(--text-muted)] ml-1">
+        <span className="text-xs text-[var(--text-muted)] ml-1">
           vs. per. anterior
         </span>
       </div>

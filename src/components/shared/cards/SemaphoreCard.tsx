@@ -62,7 +62,7 @@ export function SemaphoreCard({
       />
 
       {/* Content */}
-      <div className="flex flex-col gap-3 p-5">
+      <div className="flex flex-col gap-3 p-3 sm:p-4 lg:p-5">
         {/* Title and score */}
         <div className="flex items-start justify-between gap-3">
           <h3 className="text-[14px] font-semibold leading-snug text-[var(--text-primary)]">

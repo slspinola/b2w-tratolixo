@@ -4,11 +4,11 @@ import { Sidebar } from './Sidebar.tsx';
 import { Header } from './Header.tsx';
 
 const dashboardTitles: Record<string, string> = {
-  '/ceo': 'Dashboard CEO',
-  '/operational': 'Dashboard Operacional',
-  '/cfo': 'Dashboard CFO',
-  '/councillor': 'Dashboard Vereador',
-  '/bee2waste': 'Dashboard Bee2Waste',
+  '/desempenho': 'Desempenho Global',
+  '/operacional': 'Operacional',
+  '/financeiro': 'Sustentabilidade Económica',
+  '/territorial': 'Impacto Territorial',
+  '/rastreabilidade': 'Rastreabilidade',
 };
 
 function useBreakpoint() {
@@ -86,12 +86,12 @@ export default function AppShell() {
         // Mobile: sidebar slides in/out
         <div
           className={`
-            fixed inset-y-0 left-0 z-50
+            fixed inset-y-0 left-0 z-50 w-[280px]
             transform transition-transform duration-200 ease-[var(--b2s-easing-default)]
-            ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}
+            ${mobileOpen ? 'translate-x-0 pointer-events-auto' : '-translate-x-full pointer-events-none'}
           `}
         >
-          <Sidebar collapsed={false} onToggle={handleMenuToggle} />
+          <Sidebar collapsed={false} onToggle={handleMenuToggle} onNavigate={() => setMobileOpen(false)} />
         </div>
       ) : (
         // Tablet & Desktop: always visible
@@ -110,8 +110,8 @@ export default function AppShell() {
           showMenuButton={isMobile}
         />
 
-        {/* Page content */}
-        <main className="flex-1">
+        {/* Page content — isolate stacking context so map z-indexes stay below the header */}
+        <main className="flex-1 relative z-0">
           <Outlet />
         </main>
       </div>

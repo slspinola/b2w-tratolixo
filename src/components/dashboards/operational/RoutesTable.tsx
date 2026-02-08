@@ -41,7 +41,7 @@ const estadoConfig: Record<
 export function RoutesTable({ routes }: RoutesTableProps) {
   return (
     <div
-      className="rounded-[var(--b2s-radius-md)] p-5 h-full flex flex-col"
+      className="rounded-[var(--b2s-radius-md)] p-3 sm:p-4 lg:p-5 h-full flex flex-col"
       style={{
         background: 'var(--bg-card)',
         border: '1px solid var(--border)',
@@ -60,8 +60,8 @@ export function RoutesTable({ routes }: RoutesTableProps) {
       </div>
 
       {/* Table */}
-      <div className="flex-1 overflow-auto">
-        <table className="w-full text-xs" style={{ color: 'var(--text-primary)' }}>
+      <div className="flex-1 overflow-x-auto -mx-1">
+        <table className="w-full text-xs min-w-[580px]" style={{ color: 'var(--text-primary)' }}>
           <thead>
             <tr
               className="border-b"
