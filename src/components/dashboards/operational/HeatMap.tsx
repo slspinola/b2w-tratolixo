@@ -142,15 +142,16 @@ export function HeatMap({ metrics }: HeatMapProps) {
 
   // Style each GeoJSON feature
   const style = useCallback(
-    (feature?: Feature<Polygon, ParishProperties>): PathOptions => {
+    (feature?: Feature): PathOptions => {
       if (!feature) return {};
-      const parish = parishMap.get(feature.properties.id);
+      const props = feature.properties as ParishProperties;
+      const parish = parishMap.get(props.id);
       if (!parish) {
         return { fillColor: '#94A3B8', fillOpacity: 0.3, weight: 1, color: '#64748B' };
       }
       const value = metric.getValue(parish);
       const t = normalize(value);
-      const isHovered = hoveredParish === feature.properties.id;
+      const isHovered = hoveredParish === props.id;
       return {
         fillColor: interpolateColor(t),
         fillOpacity: isHovered ? 0.95 : 0.75,

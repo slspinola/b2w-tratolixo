@@ -33,17 +33,6 @@ function GaugeChart({
         ? 'var(--warning-default)'
         : 'var(--danger-default)';
 
-  // SVG arc gauge (180 degrees)
-  const radius = 70;
-  const cx = 90;
-  const cy = 85;
-  const startAngle = Math.PI;
-  const endAngle = 0;
-  const sweepAngle = startAngle - (startAngle - endAngle) * (pct / 100);
-
-  const bgArcPath = describeArc(cx, cy, radius, endAngle, startAngle);
-  const valueArcPath = describeArc(cx, cy, radius, sweepAngle, startAngle);
-
   return (
     <div
       className="rounded-[var(--b2s-radius-md)] p-4 flex flex-col items-center justify-center flex-1"
