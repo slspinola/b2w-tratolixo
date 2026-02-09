@@ -4,6 +4,7 @@ import { store } from '../../../mock-data/store.js';
 import type { OperationalMetrics, CouncillorMetrics } from '../../../mock-data/store.js';
 import { useFilterContext } from '../../../hooks/useFilterContext.tsx';
 import { FilterBar } from '../../layout/FilterBar.tsx';
+import { PageContainer } from '../../layout/PageContainer.tsx';
 import { OperationsSection } from './OperationsSection.tsx';
 import { QualitySection } from './QualitySection.tsx';
 import { EfficiencySection } from './EfficiencySection.tsx';
@@ -43,8 +44,8 @@ export default function OperationalDashboard() {
   );
 
   return (
-    <div className="space-y-6">
-      {/* Filter bar */}
+    <>
+      {/* Filter bar sits above PageContainer */}
       <FilterBar
         showMunicipality
         showPeriod={false}
@@ -52,57 +53,61 @@ export default function OperationalDashboard() {
         showExport
       />
 
-      {/* Header */}
-      <div className="px-1">
-        <h1
-          className="text-xl sm:text-2xl font-bold"
-          style={{ color: 'var(--text-primary)' }}
-        >
-          Operacional
-        </h1>
-        <p
-          className="text-sm mt-1"
-          style={{ color: 'var(--text-secondary)' }}
-        >
-          Dashboard de Operacoes — Recolha e controlo de qualidade
-          {filters.turno && (
-            <span className="ml-2 capitalize">
-              — Turno: {filters.turno}
-            </span>
+      <PageContainer>
+        <div className="space-y-6">
+          {/* Header */}
+          <div>
+            <h1
+              className="text-xl sm:text-2xl font-bold"
+              style={{ color: 'var(--text-primary)' }}
+            >
+              Operacional
+            </h1>
+            <p
+              className="text-sm mt-1"
+              style={{ color: 'var(--text-secondary)' }}
+            >
+              Dashboard de Operacoes — Recolha e controlo de qualidade
+              {filters.turno && (
+                <span className="ml-2 capitalize">
+                  — Turno: {filters.turno}
+                </span>
+              )}
+            </p>
+          </div>
+
+          {/* Alert banner (conditional) */}
+          {hasCriticalAlerts && (
+            <AlertBanner
+              count={unresolvedAlerts.length}
+              criticalCount={
+                unresolvedAlerts.filter(
+                  (a) => a.severidade === 'critica',
+                ).length
+              }
+            />
           )}
-        </p>
-      </div>
 
-      {/* Alert banner (conditional) */}
-      {hasCriticalAlerts && (
-        <AlertBanner
-          count={unresolvedAlerts.length}
-          criticalCount={
-            unresolvedAlerts.filter(
-              (a) => a.severidade === 'critica',
-            ).length
-          }
-        />
-      )}
+          {/* Operations section (KPIs + routes) */}
+          <OperationsSection metrics={metrics} isMafra={isMafra} />
 
-      {/* Operations section (KPIs + routes) */}
-      <OperationsSection metrics={metrics} isMafra={isMafra} />
+          {/* Quality section (contamination gauge + donut + alerts) */}
+          <QualitySection metrics={metrics} alerts={metrics.activeAlerts} />
 
-      {/* Quality section (contamination gauge + donut + alerts) */}
-      <QualitySection metrics={metrics} alerts={metrics.activeAlerts} />
+          {/* Efficiency section (team + incidents + MTTR) */}
+          <EfficiencySection metrics={metrics} />
 
-      {/* Efficiency section (team + incidents + MTTR) */}
-      <EfficiencySection metrics={metrics} />
+          {/* Hourly collection chart */}
+          <HourlyChart hourlyCollection={metrics.hourlyCollection} />
 
-      {/* Hourly collection chart */}
-      <HourlyChart hourlyCollection={metrics.hourlyCollection} />
+          {/* Heat map by parish */}
+          <HeatMap metrics={councillorMetrics} />
 
-      {/* Heat map by parish */}
-      <HeatMap metrics={councillorMetrics} />
-
-      {/* Real-time feed */}
-      <RealTimeFeed />
-    </div>
+          {/* Real-time feed */}
+          <RealTimeFeed />
+        </div>
+      </PageContainer>
+    </>
   );
 }
 
